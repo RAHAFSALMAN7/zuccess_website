@@ -108,7 +108,7 @@ export default function LinksPage() {
 
             {/* WhatsApp */}
             <a
-              href="https://wa.me/971585317033"
+              href="https://wa.me/971585137033"
               target="_blank"
               rel="noopener noreferrer"
               className="
