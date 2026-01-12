@@ -45,7 +45,7 @@ export default function LinksPage() {
           </div>
         </div>
 
-        {/* Title */}
+        {}
         <h1 className="text-3xl font-extrabold text-[#0B0844]">
           ZUCCESS
         </h1>
@@ -56,7 +56,7 @@ export default function LinksPage() {
           with automation & innovation.
         </p>
 
-        {/* Social Icons */}
+        {}
         <div className="flex justify-center gap-5 mt-6">
           {[
             { icon: <Instagram />, url: "https://www.instagram.com/zuccess.ai" },
