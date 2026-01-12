@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-/* ======================================================
-   ⭐ FULL SEO + OG META CONFIGURATION
-====================================================== */
 export const metadata: Metadata = {
   title:
     "Zuccess — AI Solutions, Automation & Digital Innovation, Robotics",
@@ -23,8 +21,6 @@ export const metadata: Metadata = {
     "Digital Transformation",
     "Zuccess",
   ],
-
-  // SOCIAL MEDIA / OPEN GRAPH
   openGraph: {
     title: "Zuccess — Intelligent AI Solutions & Robotics",
     description:
@@ -42,8 +38,6 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
-
-  // TWITTER PREVIEW CARD
   twitter: {
     card: "summary_large_image",
     title: "Zuccess — AI Automation & Robotics",
@@ -51,25 +45,20 @@ export const metadata: Metadata = {
       "AI automation, WhatsApp bots, robotics, and intelligent enterprise systems.",
     images: ["/zuccessog.png"],
   },
-
-  // FAVICON
   icons: {
     icon: "/favicon.ico",
   },
 };
 
-/* ======================================================
-   ⭐ ROOT LAYOUT — WITH STRUCTURED DATA (Schema.org)
-====================================================== */
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <head>
-        {/* ===================== SCHEMA.ORG — COMPANY INFO ===================== */}
+        {/* Schema.org */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -99,7 +88,15 @@ export default function RootLayout({
         />
       </head>
 
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+
+        {/* ✅ Chat Widget — يعوّض main.js */}
+        <Script
+          src="/chat-widget.js"
+          strategy="afterInteractive"
+        />
+      </body>
     </html>
   );
 }

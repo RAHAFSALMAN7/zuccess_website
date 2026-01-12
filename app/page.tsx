@@ -1,5 +1,6 @@
 "use client";
 import AvatarFrame from "./components/InteractiveAvatar";
+
 import { FaWhatsapp } from "react-icons/fa";
 import {
   Play,
@@ -10,7 +11,7 @@ import {
   Rewind,
   FastForward,} from "lucide-react";
 import { useState, useEffect, useRef } from "react";
-
+import ChatWidget from "./components/ChatWidget";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Navbar from "./components/Navbar";
@@ -1499,7 +1500,7 @@ const nextVideo = () => {
 
       </footer>
 
-
+ 
     </>
   );
 }
