@@ -1,17 +1,22 @@
- "use client";
+"use client";
 
 export default function HeygenWidget() {
   return (
-    <section className="flex justify-center py-24 bg-gradient-to-b from-[#f7f7f2] to-white">
-
-      <div className="w-full max-w-md rounded-3xl bg-white p-6 shadow-xl border border-gray-100">
+    <section className="flex justify-center py-28 bg-gradient-to-b from-[#f7f7f2] to-white">
+      <div className="w-full max-w-lg rounded-3xl bg-white p-8 shadow-2xl border border-gray-100">
 
         {/* HEADER */}
-        <div className="flex items-center gap-3 mb-5">
-          <span className="h-3 w-3 rounded-full bg-emerald-500 animate-pulse" />
-          <div>
-            <p className="font-semibold text-gray-800">AI Assistant</p>
-            <p className="text-xs text-emerald-500">Online Now</p>
+        <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-100">
+          <div className="flex items-center gap-3">
+            <span className="h-3 w-3 rounded-full bg-emerald-500 animate-pulse" />
+            <div>
+              <p className="font-semibold text-gray-900 text-sm tracking-tight">
+                AI Assistant
+              </p>
+              <p className="text-xs text-emerald-500 font-medium">
+                Online Now
+              </p>
+            </div>
           </div>
         </div>
 
@@ -28,14 +33,14 @@ export default function HeygenWidget() {
         </div>
 
         {/* FEATURES */}
-        <div className="mt-5 flex flex-wrap justify-center gap-2 text-xs text-gray-600">
-          <span className="rounded-full bg-gray-100 px-3 py-1">
+        <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium">
+          <span className="rounded-full bg-gray-100 px-4 py-1.5 text-gray-700">
             Real-time Chat
           </span>
-          <span className="rounded-full bg-gray-100 px-3 py-1">
+          <span className="rounded-full bg-gray-100 px-4 py-1.5 text-gray-700">
             24/7 Available
           </span>
-          <span className="rounded-full bg-gray-100 px-3 py-1">
+          <span className="rounded-full bg-gray-100 px-4 py-1.5 text-gray-700">
             Secure & Private
           </span>
         </div>
