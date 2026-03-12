@@ -9,7 +9,8 @@ import {
   VolumeX,
   Maximize,
   Rewind,
-  FastForward,} from "lucide-react";
+  FastForward,
+} from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import ChatWidget from "./components/ChatWidget";
 import { motion } from "framer-motion";
@@ -39,17 +40,17 @@ export default function Home() {
   const [showLogo, setShowLogo] = useState(false);
   const [hideIntro, setHideIntro] = useState(false);
   const smartHomeVideos = [
-  "https://res.cloudinary.com/dl2rqs0lo/video/upload/v1765960915/zuccesshomesystem_iuskvb.mp4",
-  "https://res.cloudinary.com/dl2rqs0lo/video/upload/v1765962512/zuccesshome_soxzgl.mp4",
-  "https://res.cloudinary.com/dl2rqs0lo/video/upload/v1765962598/smarthome_xa7rof.mp4",
-  "https://res.cloudinary.com/dl2rqs0lo/video/upload/v1765962642/Smarthomebyzuccess_ljijmo.mp4",
-];
+    "https://res.cloudinary.com/dl2rqs0lo/video/upload/v1765960915/zuccesshomesystem_iuskvb.mp4",
+    "https://res.cloudinary.com/dl2rqs0lo/video/upload/v1765962512/zuccesshome_soxzgl.mp4",
+    "https://res.cloudinary.com/dl2rqs0lo/video/upload/v1765962598/smarthome_xa7rof.mp4",
+    "https://res.cloudinary.com/dl2rqs0lo/video/upload/v1765962642/Smarthomebyzuccess_ljijmo.mp4",
+  ];
 
- const videoRef = useRef<HTMLVideoElement>(null);
- const [currentVideo, setCurrentVideo] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [currentVideo, setCurrentVideo] = useState(0);
 
-const [playing, setPlaying] = useState(true);
-const [muted, setMuted] = useState(true);
+  const [playing, setPlaying] = useState(true);
+  const [muted, setMuted] = useState(true);
 
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
@@ -57,53 +58,53 @@ const [muted, setMuted] = useState(true);
       section.scrollIntoView({ behavior: "smooth" });
     }
   };
-const togglePlay = () => {
-  if (!videoRef.current) return;
-  playing ? videoRef.current.pause() : videoRef.current.play();
-  setPlaying(!playing);
-};
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+    playing ? videoRef.current.pause() : videoRef.current.play();
+    setPlaying(!playing);
+  };
 
-const toggleMute = () => {
-  if (!videoRef.current) return;
-  videoRef.current.muted = !muted;
-  setMuted(!muted);
-};
+  const toggleMute = () => {
+    if (!videoRef.current) return;
+    videoRef.current.muted = !muted;
+    setMuted(!muted);
+  };
 
-const toggleFullscreen = () => {
-  const video = videoRef.current as any;
-  if (!video) return;
+  const toggleFullscreen = () => {
+    const video = videoRef.current as any;
+    if (!video) return;
 
-  // iOS
-  if (video.webkitEnterFullscreen) {
-    video.webkitEnterFullscreen();
-    return;
-  }
+    // iOS
+    if (video.webkitEnterFullscreen) {
+      video.webkitEnterFullscreen();
+      return;
+    }
 
-  // Desktop / Android
-  if (!document.fullscreenElement) {
-    video.requestFullscreen?.();
-  } else {
-    document.exitFullscreen?.();
-  }
-};
+    // Desktop / Android
+    if (!document.fullscreenElement) {
+      video.requestFullscreen?.();
+    } else {
+      document.exitFullscreen?.();
+    }
+  };
 
-const seek = (seconds: number) => {
-  if (!videoRef.current) return;
-  videoRef.current.currentTime += seconds;
-};
-const prevVideo = () => {
-  setCurrentVideo((prev) =>
-    prev === 0 ? smartHomeVideos.length - 1 : prev - 1
-  );
-  setPlaying(true);
-};
+  const seek = (seconds: number) => {
+    if (!videoRef.current) return;
+    videoRef.current.currentTime += seconds;
+  };
+  const prevVideo = () => {
+    setCurrentVideo((prev) =>
+      prev === 0 ? smartHomeVideos.length - 1 : prev - 1
+    );
+    setPlaying(true);
+  };
 
-const nextVideo = () => {
-  setCurrentVideo((prev) =>
-    prev === smartHomeVideos.length - 1 ? 0 : prev + 1
-  );
-  setPlaying(true);
-};
+  const nextVideo = () => {
+    setCurrentVideo((prev) =>
+      prev === smartHomeVideos.length - 1 ? 0 : prev + 1
+    );
+    setPlaying(true);
+  };
 
   useEffect(() => {
     const t1 = setTimeout(() => setShowText(false), 3000);
@@ -307,15 +308,15 @@ const nextVideo = () => {
                 id: "profile-details",
               },
               {
-  title: "Intelligent Home Solutions",
-  desc: "AI-powered smart homes, automation, security & intelligent living.",
-  id: "intelligent-home",
-}
+                title: "Intelligent Home Solutions",
+                desc: "AI-powered smart homes, automation, security & intelligent living.",
+                id: "intelligent-home",
+              }
 
             ].map((item, index) => (
               <motion.div
                 key={index}
-     onClick={() => scrollToSection(item.id)}
+                onClick={() => scrollToSection(item.id)}
 
                 initial={{ opacity: 0, y: 60, scale: 0.9 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -397,14 +398,14 @@ const nextVideo = () => {
               transition={{ duration: 1 }}
             >
               <video
-  src="https://res.cloudinary.com/dl2rqs0lo/video/upload/v1765972849/compressed_holome_lw3bor.mp4"
-  controls
-  playsInline
-  preload="metadata"
-  className="w-full rounded-2xl shadow-2xl object-cover"
->
-  Your browser does not support the video tag.
-</video>
+                src="https://res.cloudinary.com/dl2rqs0lo/video/upload/v1765972849/compressed_holome_lw3bor.mp4"
+                controls
+                playsInline
+                preload="metadata"
+                className="w-full rounded-2xl shadow-2xl object-cover"
+              >
+                Your browser does not support the video tag.
+              </video>
 
             </motion.div>
 
@@ -502,115 +503,115 @@ const nextVideo = () => {
       {/* =======================================================
       🔽 DETAILS SECTIONS
 ======================================================= */}
-{/* =========================================================================
+      {/* =========================================================================
    ⭐ WHATSAPP AUTOMATION — PREMIUM EXPANDED MARKETING SECTION
 ============================================================================ */}
-<section
-  id="whatsapp-details"
-  className="w-full py-40 px-10 md:px-24 bg-[#FFF8E8] text-[#0B0844] relative overflow-hidden"
->
-  {/* Soft Pattern Background */}
-  <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(circle,#0B0844_1px,transparent_1px)] bg-[size:42px_42px] pointer-events-none"></div>
+      <section
+        id="whatsapp-details"
+        className="w-full py-40 px-10 md:px-24 bg-[#FFF8E8] text-[#0B0844] relative overflow-hidden"
+      >
+        {/* Soft Pattern Background */}
+        <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(circle,#0B0844_1px,transparent_1px)] bg-[size:42px_42px] pointer-events-none"></div>
 
-  <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-24 items-center relative z-10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-24 items-center relative z-10">
 
-    {/* LEFT — TEXT CONTENT */}
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, ease: "easeOut" }}
-      viewport={{ once: true }}
-      className="space-y-8"
-    >
-      {/* Headline */}
-      <h2 className="text-6xl md:text-7xl font-extrabold leading-tight font-poppins text-[#0B0844]">
-        Automate Your
-        <span className="text-[#EA7946] block mt-4">
-          WhatsApp Experience
-        </span>
-      </h2>
-
-      {/* Subhead */}
-      <p className="text-xl text-[#0B0844]/80 font-nunito leading-relaxed max-w-lg">
-        Make your WhatsApp work for you — not the other way around.
-        With AI-driven automation, your business can respond instantly,
-        qualify leads, close sales, and support customers 24/7 without
-        needing a human team.
-      </p>
-
-      {/* Power Bullets */}
-      <div className="space-y-4 mt-6">
-        {[
-          "Instant replies powered by AI — no delays, no missed opportunities.",
-          "Lead qualification + booking flows tailored to your business.",
-          "AI funneling system that increases conversions automatically.",
-          "24/7 customer support with human-like understanding.",
-          "Perfect for sales, support, real estate, clinics, and e-commerce.",
-        ].map((text, index) => (
+          {/* LEFT — TEXT CONTENT */}
           <motion.div
-            key={index}
-            initial={{ opacity: 0, x: -15 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: index * 0.1 }}
-            className="flex items-start gap-3 text-lg text-[#0B0844]/85"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="space-y-8"
           >
-            <div className="min-w-3 h-3 bg-[#EA7946] mt-2 rounded-full"></div>
-            <p>{text}</p>
-          </motion.div>
-        ))}
-      </div>
+            {/* Headline */}
+            <h2 className="text-6xl md:text-7xl font-extrabold leading-tight font-poppins text-[#0B0844]">
+              Automate Your
+              <span className="text-[#EA7946] block mt-4">
+                WhatsApp Experience
+              </span>
+            </h2>
 
-      {/* CTA */}
-      <motion.a
-        href="https://zaichat.net"
-        target="_blank"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        className="
+            {/* Subhead */}
+            <p className="text-xl text-[#0B0844]/80 font-nunito leading-relaxed max-w-lg">
+              Make your WhatsApp work for you — not the other way around.
+              With AI-driven automation, your business can respond instantly,
+              qualify leads, close sales, and support customers 24/7 without
+              needing a human team.
+            </p>
+
+            {/* Power Bullets */}
+            <div className="space-y-4 mt-6">
+              {[
+                "Instant replies powered by AI — no delays, no missed opportunities.",
+                "Lead qualification + booking flows tailored to your business.",
+                "AI funneling system that increases conversions automatically.",
+                "24/7 customer support with human-like understanding.",
+                "Perfect for sales, support, real estate, clinics, and e-commerce.",
+              ].map((text, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -15 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="flex items-start gap-3 text-lg text-[#0B0844]/85"
+                >
+                  <div className="min-w-3 h-3 bg-[#EA7946] mt-2 rounded-full"></div>
+                  <p>{text}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* CTA */}
+            <motion.a
+              href="https://zaichat.net"
+              target="_blank"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="
           inline-block mt-10 px-12 py-5 rounded-full
           bg-[#EA7946] text-white font-bold text-xl
           shadow-lg shadow-[#EA7946]/40
           hover:shadow-xl hover:shadow-[#EA7946]/60
           transition-all tracking-wide
         "
-      >
-        Start Automating — It’s Free →
-      </motion.a>
-    </motion.div>
+            >
+              Start Automating — It’s Free →
+            </motion.a>
+          </motion.div>
 
-    {/* RIGHT — IMAGE */}
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: true }}
-      className="flex justify-center relative"
-    >
-      {/* Glow */}
-      <div className="absolute w-[300px] h-[300px] bg-[#EA7946]/30 blur-[120px] rounded-full -z-10"></div>
+          {/* RIGHT — IMAGE */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+            className="flex justify-center relative"
+          >
+            {/* Glow */}
+            <div className="absolute w-[300px] h-[300px] bg-[#EA7946]/30 blur-[120px] rounded-full -z-10"></div>
 
-      <Image
-        src="/Zaichatpalform.png"
-        width={500}
-        height={500}
-        alt="WhatsApp Automation Platform"
-        className="object-contain drop-shadow-2xl rounded-3xl"
-      />
-    </motion.div>
-  </div>
+            <Image
+              src="/Zaichatpalform.png"
+              width={500}
+              height={500}
+              alt="WhatsApp Automation Platform"
+              className="object-contain drop-shadow-2xl rounded-3xl"
+            />
+          </motion.div>
+        </div>
 
-  {/* =========================================================================
+        {/* =========================================================================
      💬 FLOATING WHATSAPP ICON — ZUCCESS OFFICIAL BOT
   ========================================================================= */}
-  <motion.a
-    href="https://wa.me/971585137033?text=Try%20chatting%20with%20the%20official%20Zuccess%20chatbot"
-    target="_blank"
-    aria-label="Chat with Zuccess WhatsApp Bot"
-    initial={{ opacity: 0, scale: 0.8 }}
-    animate={{ opacity: 1, scale: 1 }}
-    whileHover={{ scale: 1.15 }}
-    whileTap={{ scale: 0.9 }}
-    className="
+        <motion.a
+          href="https://wa.me/971585137033?text=Try%20chatting%20with%20the%20official%20Zuccess%20chatbot"
+          target="_blank"
+          aria-label="Chat with Zuccess WhatsApp Bot"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          whileHover={{ scale: 1.15 }}
+          whileTap={{ scale: 0.9 }}
+          className="
       fixed bottom-8 right-8 z-50
       w-16 h-16 flex items-center justify-center
       rounded-full bg-[#25D366] text-white
@@ -618,55 +619,55 @@ const nextVideo = () => {
       hover:shadow-2xl hover:shadow-[#25D366]/60
       transition-all
     "
-  >
-    <FaWhatsapp className="text-3xl" />
-  </motion.a>
-</section>
+        >
+          <FaWhatsapp className="text-3xl" />
+        </motion.a>
+      </section>
 
-{/* =========================================================================
+      {/* =========================================================================
 ⭐ INTELLIGENT HOME — SMART CONTROL PANEL EXPERIENCE
 ============================================================================ */}
-<section
-  id="intelligent-home"
-  className="relative w-full py-40 px-8 md:px-20 bg-gradient-to-b from-[#020617] to-[#0B0844] text-white overflow-hidden"
->
-  {/* Ambient Glows */}
-  <div className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-[#EA7946]/20 blur-[260px] rounded-full" />
-  <div className="absolute bottom-[-200px] right-[-100px] w-[600px] h-[600px] bg-[#0B5EFF]/25 blur-[260px] rounded-full" />
+      <section
+        id="intelligent-home"
+        className="relative w-full py-40 px-8 md:px-20 bg-gradient-to-b from-[#020617] to-[#0B0844] text-white overflow-hidden"
+      >
+        {/* Ambient Glows */}
+        <div className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-[#EA7946]/20 blur-[260px] rounded-full" />
+        <div className="absolute bottom-[-200px] right-[-100px] w-[600px] h-[600px] bg-[#0B5EFF]/25 blur-[260px] rounded-full" />
 
-  <div className="max-w-7xl mx-auto relative z-10 space-y-24">
+        <div className="max-w-7xl mx-auto relative z-10 space-y-24">
 
-    {/* ================= HEADER ================= */}
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: true }}
-      className="text-center max-w-4xl mx-auto"
-    >
-      <h2 className="text-6xl md:text-7xl font-extrabold">
-        Intelligent
-        <span className="block text-[#EA7946] mt-2">
-          Smart Home Ecosystem
-        </span>
-      </h2>
+          {/* ================= HEADER ================= */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+            className="text-center max-w-4xl mx-auto"
+          >
+            <h2 className="text-6xl md:text-7xl font-extrabold">
+              Intelligent
+              <span className="block text-[#EA7946] mt-2">
+                Smart Home Ecosystem
+              </span>
+            </h2>
 
-      <p className="mt-8 text-xl text-white/75 leading-relaxed">
-        A fully integrated smart living platform that connects lighting,
-        climate, security, energy, and automation into one seamless AI-powered system.
-      </p>
-    </motion.div>
+            <p className="mt-8 text-xl text-white/75 leading-relaxed">
+              A fully integrated smart living platform that connects lighting,
+              climate, security, energy, and automation into one seamless AI-powered system.
+            </p>
+          </motion.div>
 
-    {/* ================= VIDEO PANEL ================= */}
-    <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: true }}
-      className="relative flex justify-center"
-    >
-      <div
-        className="
+          {/* ================= VIDEO PANEL ================= */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+            className="relative flex justify-center"
+          >
+            <div
+              className="
           relative
           w-[320px] md:w-[380px]
           aspect-[9/16]
@@ -676,27 +677,27 @@ const nextVideo = () => {
           border border-white/20
           shadow-[0_40px_120px_rgba(0,0,0,0.6)]
         "
-      >
-        {/* Camera Notch */}
-        <div className="absolute top-3 left-1/2 -translate-x-1/2 w-20 h-6 bg-black/60 rounded-full z-20" />
+            >
+              {/* Camera Notch */}
+              <div className="absolute top-3 left-1/2 -translate-x-1/2 w-20 h-6 bg-black/60 rounded-full z-20" />
 
-        {/* VIDEO */}
-        <video
-          key={currentVideo}
-          ref={videoRef}
-          src={smartHomeVideos[currentVideo]}
-          autoPlay
-          loop
-          muted={muted}
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+              {/* VIDEO */}
+              <video
+                key={currentVideo}
+                ref={videoRef}
+                src={smartHomeVideos[currentVideo]}
+                autoPlay
+                loop
+                muted={muted}
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+              />
 
-        {/* PREV BUTTON */}
-        <button
-          onClick={prevVideo}
-          aria-label="Previous video"
-          className="
+              {/* PREV BUTTON */}
+              <button
+                onClick={prevVideo}
+                aria-label="Previous video"
+                className="
             absolute left-3 top-1/2 -translate-y-1/2
             z-30
             w-12 h-12
@@ -709,15 +710,15 @@ const nextVideo = () => {
             active:scale-95
             transition
           "
-        >
-          ‹
-        </button>
+              >
+                ‹
+              </button>
 
-        {/* NEXT BUTTON */}
-        <button
-          onClick={nextVideo}
-          aria-label="Next video"
-          className="
+              {/* NEXT BUTTON */}
+              <button
+                onClick={nextVideo}
+                aria-label="Next video"
+                className="
             absolute right-3 top-1/2 -translate-y-1/2
             z-30
             w-12 h-12
@@ -730,14 +731,14 @@ const nextVideo = () => {
             active:scale-95
             transition
           "
-        >
-          ›
-        </button>
+              >
+                ›
+              </button>
 
-        {/* CONTROL BAR */}
-        <div
-          dir="ltr"
-          className="
+              {/* CONTROL BAR */}
+              <div
+                dir="ltr"
+                className="
             absolute bottom-4 left-1/2 -translate-x-1/2
             z-30
             bg-black/55 backdrop-blur-xl
@@ -746,104 +747,104 @@ const nextVideo = () => {
             flex items-center gap-4
             shadow-xl
           "
-        >
-          <button onClick={() => seek(-10)}>
-            <Rewind size={16} className="text-white/80 hover:text-white" />
-          </button>
+              >
+                <button onClick={() => seek(-10)}>
+                  <Rewind size={16} className="text-white/80 hover:text-white" />
+                </button>
 
-          <button onClick={togglePlay}>
-            {playing ? (
-              <Pause size={16} className="text-white" />
-            ) : (
-              <Play size={16} className="text-white" />
-            )}
-          </button>
+                <button onClick={togglePlay}>
+                  {playing ? (
+                    <Pause size={16} className="text-white" />
+                  ) : (
+                    <Play size={16} className="text-white" />
+                  )}
+                </button>
 
-          <button onClick={() => seek(10)}>
-            <FastForward size={16} className="text-white/80 hover:text-white" />
-          </button>
+                <button onClick={() => seek(10)}>
+                  <FastForward size={16} className="text-white/80 hover:text-white" />
+                </button>
 
-          <button onClick={toggleMute}>
-            {muted ? (
-              <VolumeX size={16} className="text-white/80" />
-            ) : (
-              <Volume2 size={16} className="text-white" />
-            )}
-          </button>
+                <button onClick={toggleMute}>
+                  {muted ? (
+                    <VolumeX size={16} className="text-white/80" />
+                  ) : (
+                    <Volume2 size={16} className="text-white" />
+                  )}
+                </button>
 
-          <button onClick={toggleFullscreen}>
-            <Maximize size={16} className="text-white/80 hover:text-white" />
-          </button>
-        </div>
-      </div>
-    </motion.div>
+                <button onClick={toggleFullscreen}>
+                  <Maximize size={16} className="text-white/80 hover:text-white" />
+                </button>
+              </div>
+            </div>
+          </motion.div>
 
-    {/* ================= FEATURES GRID ================= */}
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-      {[
-        {
-          title: "Full Automation",
-          text: "Control lighting, AC, curtains, and devices automatically or manually.",
-        },
-        {
-          title: "AI Security",
-          text: "Smart surveillance, motion detection, and real-time alerts.",
-        },
-        {
-          title: "Energy Intelligence",
-          text: "Optimize energy usage with AI-driven efficiency monitoring.",
-        },
-      ].map((item, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: index * 0.15 }}
-          viewport={{ once: true }}
-          className="
+          {/* ================= FEATURES GRID ================= */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {[
+              {
+                title: "Full Automation",
+                text: "Control lighting, AC, curtains, and devices automatically or manually.",
+              },
+              {
+                title: "AI Security",
+                text: "Smart surveillance, motion detection, and real-time alerts.",
+              },
+              {
+                title: "Energy Intelligence",
+                text: "Optimize energy usage with AI-driven efficiency monitoring.",
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.15 }}
+                viewport={{ once: true }}
+                className="
             bg-white/5 backdrop-blur-xl
             border border-white/10
             rounded-2xl p-8
             shadow-lg hover:shadow-xl transition
           "
-        >
-          <h3 className="text-2xl font-bold text-[#EA7946] mb-4">
-            {item.title}
-          </h3>
-          <p className="text-white/70 leading-relaxed">
-            {item.text}
-          </p>
-        </motion.div>
-      ))}
-    </div>
+              >
+                <h3 className="text-2xl font-bold text-[#EA7946] mb-4">
+                  {item.title}
+                </h3>
+                <p className="text-white/70 leading-relaxed">
+                  {item.text}
+                </p>
+              </motion.div>
+            ))}
+          </div>
 
-    {/* ================= CTA ================= */}
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: true }}
-      className="text-center"
-    >
-      <motion.a
-        href="https://zuccess.io/"
-        target="_blank"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        className="
+          {/* ================= CTA ================= */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <motion.a
+              href="https://zuccess.io/"
+              target="_blank"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="
           inline-block px-14 py-5 rounded-full
           bg-[#EA7946] text-white font-bold text-xl
           shadow-lg shadow-[#EA7946]/40
           hover:shadow-xl hover:shadow-[#EA7946]/60
           transition-all
         "
-      >
-        Discover Intelligent Living →
-      </motion.a>
-    </motion.div>
+            >
+              Discover Intelligent Living →
+            </motion.a>
+          </motion.div>
 
-  </div>
-</section>
+        </div>
+      </section>
 
 
 
@@ -958,100 +959,100 @@ const nextVideo = () => {
 
         </div>
       </section>
- {/* =========================================================================
+      {/* =========================================================================
  ⭐ PROJECTS WE’VE WORKED ON — SEAPOINT CASE STUDY
 ============================================================================ */}
-<section
-  id="realestate-details"
-  className="w-full py-32 px-8 md:px-20 bg-[#FFF8E8] text-[#0B0844]"
->
-  <div className="max-w-5xl mx-auto space-y-20">
+      <section
+        id="realestate-details"
+        className="w-full py-32 px-8 md:px-20 bg-[#FFF8E8] text-[#0B0844]"
+      >
+        <div className="max-w-5xl mx-auto space-y-20">
 
-    {/* HEADER */}
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.9 }}
-      viewport={{ once: true }}
-      className="text-center space-y-6"
-    >
+          {/* HEADER */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9 }}
+            viewport={{ once: true }}
+            className="text-center space-y-6"
+          >
 
-      {/* SECTION LABEL */}
-      <p className="text-sm md:text-base uppercase tracking-widest text-[#0B0844]/60">
-        Projects We’ve Worked On
-      </p>
+            {/* SECTION LABEL */}
+            <p className="text-sm md:text-base uppercase tracking-widest text-[#0B0844]/60">
+              Projects We’ve Worked On
+            </p>
 
-      <h2 className="text-5xl md:text-6xl font-bold tracking-tight">
-        SeaPoint 
-      </h2>
+            <h2 className="text-5xl md:text-6xl font-bold tracking-tight">
+              SeaPoint
+            </h2>
 
-      <p className="text-lg md:text-xl text-[#EA7946] font-medium">
-        Smart Digital Experience • AI Call Center • Integrated Systems
-      </p>
+            <p className="text-lg md:text-xl text-[#EA7946] font-medium">
+              Smart Digital Experience • AI Call Center • Integrated Systems
+            </p>
 
-      {/* Divider */}
-      <div className="mx-auto w-20 h-[3px] bg-[#EA7946] rounded-full"></div>
-    </motion.div>
+            {/* Divider */}
+            <div className="mx-auto w-20 h-[3px] bg-[#EA7946] rounded-full"></div>
+          </motion.div>
 
-    {/* DESCRIPTION */}
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.9 }}
-      viewport={{ once: true }}
-      className="max-w-3xl mx-auto text-center text-[#0B0844]/85 text-lg leading-relaxed space-y-6"
-    >
-      <p>
-        SeaPoint is a comprehensive digital project that we developed to deliver
-        a modern and seamless online experience. The platform combines elegant
-        design with smart digital functionality, tailored to support real-world
-        business operations.
-      </p>
+          {/* DESCRIPTION */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto text-center text-[#0B0844]/85 text-lg leading-relaxed space-y-6"
+          >
+            <p>
+              SeaPoint is a comprehensive digital project that we developed to deliver
+              a modern and seamless online experience. The platform combines elegant
+              design with smart digital functionality, tailored to support real-world
+              business operations.
+            </p>
 
-      <p>
-        As part of the SeaPoint project, we implemented an AI-powered Call Center
-        solution that enhances customer communication through intelligent call
-        routing, real-time monitoring, and AI-assisted agent support.
-      </p>
+            <p>
+              As part of the SeaPoint project, we implemented an AI-powered Call Center
+              solution that enhances customer communication through intelligent call
+              routing, real-time monitoring, and AI-assisted agent support.
+            </p>
 
-      
-    </motion.div>
 
-    {/* CTA */}
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.9 }}
-      viewport={{ once: true }}
-      className="text-center space-y-4"
-    >
-      <a
-        href="https://seapointmknn.netlify.app"
-        target="_blank"
-        className="
+          </motion.div>
+
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9 }}
+            viewport={{ once: true }}
+            className="text-center space-y-4"
+          >
+            <a
+              href="https://seapointmknn.netlify.app"
+              target="_blank"
+              className="
           inline-block px-12 py-4 rounded-full 
           bg-[#EA7946] text-white font-semibold text-lg
           shadow-md hover:shadow-lg hover:scale-105 
           transition-all duration-300
         "
-      >
-        Explore SeaPoint Project
-      </a>
+            >
+              Explore SeaPoint Project
+            </a>
 
-      <p className="text-sm text-[#0B0844]/70">
-        Access the AI-powered Call Center system:
-        <a
-          href="https://mkn-callcenter-frontend.onrender.com/"
-          target="_blank"
-          className="ml-1 underline text-[#EA7946] font-medium"
-        >
-          Open Call Center Dashboard
-        </a>
-      </p>
-    </motion.div>
+            <p className="text-sm text-[#0B0844]/70">
+              Access the AI-powered Call Center system:
+              <a
+                href="https://mkn-callcenter-frontend.onrender.com/"
+                target="_blank"
+                className="ml-1 underline text-[#EA7946] font-medium"
+              >
+                Open Call Center Dashboard
+              </a>
+            </p>
+          </motion.div>
 
-  </div>
-</section>
+        </div>
+      </section>
 
 
 
@@ -1422,8 +1423,8 @@ const nextVideo = () => {
               </li>
 
               <li className="flex items-center gap-3">
-                <a href="tel:+971503294644" className="hover:text-[#EA7946] transition">
-                  +971-503294644
+                <a href="tel:+966561191797" className="hover:text-[#EA7946] transition">
+                  +966561191797
                 </a>
               </li>
 
@@ -1500,7 +1501,7 @@ const nextVideo = () => {
 
       </footer>
 
- 
+
     </>
   );
 }

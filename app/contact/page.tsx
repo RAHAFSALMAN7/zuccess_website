@@ -90,8 +90,8 @@ export default function ContactPage() {
           <Phone className="w-12 h-12 text-[#EA7946]" />
           <h3 className="text-2xl font-bold mt-4">Call Us</h3>
           <p className="text-white/70 mt-3 text-center">We’re always happy to talk.</p>
-          <a href="tel:+971503294644" className="mt-4 text-[#EA7946] font-semibold">
-            +971 50 329 4644
+          <a href="tel:+966561191797" className="mt-4 text-[#EA7946] font-semibold">
+            +966561191797
           </a>
         </div>
 
