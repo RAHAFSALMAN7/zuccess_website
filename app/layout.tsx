@@ -80,7 +80,7 @@ export default function RootLayout({
               contactPoint: {
                 "@type": "ContactPoint",
                 email: "info@zuccess.ai",
-                telephone: "+971503294644",
+                telephone: "+966561191797",
                 contactType: "customer service",
               },
             }),

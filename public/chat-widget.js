@@ -294,6 +294,42 @@ var ChatWidget = (() => {
       background: #10b981;
       animation: pulse 1.5s infinite;
     }
+
+    .chat-widget-tooltip {
+      position: fixed;
+      left: 0;
+      top: 0;
+      transform: translate(-50%, calc(-100% - 10px));
+      background: #0b0844;
+      color: #fff;
+      font-size: 12px;
+      line-height: 1.2;
+      font-weight: 500;
+      padding: 8px 10px;
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 10002;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .chat-widget-tooltip.visible {
+      opacity: 1;
+      transform: translate(-50%, calc(-100% - 14px));
+    }
+
+    .chat-widget-tooltip::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-style: solid;
+      border-width: 6px 6px 0 6px;
+      border-color: #0b0844 transparent transparent transparent;
+    }
     
     .chat-widget-call-overlay {
       position: fixed;
@@ -1166,6 +1202,31 @@ var ChatWidget = (() => {
             pe = document.getElementById("chat-widget-voice-indicator"),
             ue = document.getElementById("chat-widget-voice-text"),
             F = document.getElementById("chat-widget-clear-btn");
+        let ttTooltip = document.createElement("div");
+        (ttTooltip.id = "chat-widget-hover-tooltip"),
+            (ttTooltip.className = "chat-widget-tooltip"),
+            (ttTooltip.textContent = "Chat with our AI Agent here"),
+            document.body.appendChild(ttTooltip);
+        function ttGetTarget() {
+            return Y && window.getComputedStyle(Y).display !== "none"
+                ? Y
+                : Be && window.getComputedStyle(Be).display !== "none"
+                    ? Be
+                    : null;
+        }
+        function ttPositionTooltip(e) {
+            if (!e) return;
+            let t = e.getBoundingClientRect();
+            (ttTooltip.style.left = `${t.left + t.width / 2}px`),
+                (ttTooltip.style.top = `${t.top}px`);
+        }
+        function ttShowTooltip() {
+            let e = ttGetTarget();
+            e && (ttPositionTooltip(e), ttTooltip.classList.add("visible"));
+        }
+        let ttTarget = ttGetTarget();
+        ttTarget &&
+            (window.addEventListener("resize", ttShowTooltip), ttShowTooltip());
         function Se() {
             L &&
                 L.addEventListener("click", () => {
