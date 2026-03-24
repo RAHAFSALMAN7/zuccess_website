@@ -39,6 +39,7 @@ export default function Home() {
 
   const [showLogo, setShowLogo] = useState(false);
   const [hideIntro, setHideIntro] = useState(false);
+  const [isFooterMapOpen, setIsFooterMapOpen] = useState(false);
   const smartHomeVideos = [
     "https://res.cloudinary.com/dl2rqs0lo/video/upload/v1765960915/zuccesshomesystem_iuskvb.mp4",
     "https://res.cloudinary.com/dl2rqs0lo/video/upload/v1765962512/zuccesshome_soxzgl.mp4",
@@ -1398,13 +1399,27 @@ export default function Home() {
               </li>
 
               <li>
-                <p className="font-semibold text-[#0B0844]">Nablus, Palestine</p>
-                <p className="text-[#EA7946]">Rafidia Tower, 9th Floor</p>
+                <p className="font-semibold text-[#0B0844]">Saudi Arabia</p>
+                <p className="text-[#EA7946]">Al Khobar- ShorofatPark</p>
               </li>
 
               <li>
-                <p className="font-semibold text-[#0B0844]">Saudi Arabia</p>
-                <p className="text-[#EA7946]">Khobar — الصفقة المضمونة</p>
+                <p className="font-semibold text-[#0B0844]">New Location</p>
+                <button
+                  type="button"
+                  onClick={() => setIsFooterMapOpen(true)}
+                  className="mt-2 block w-[88px] h-[88px] rounded-xl overflow-hidden border border-[#0B0844]/10 shadow-sm hover:shadow-md transition focus:outline-none focus:ring-2 focus:ring-[#EA7946]/50"
+                  aria-label="Open new location map"
+                >
+                  <div className="w-full h-full pointer-events-none">
+                    <iframe
+                      src="https://www.google.com/maps?output=embed&q=%D8%B4%D8%B1%D9%83%D8%A9%20%D8%A7%D9%84%D8%B5%D9%81%D9%82%D8%A9%20%D8%A7%D9%84%D9%85%D8%B6%D9%85%D9%88%D9%86%D8%A9%20zuccess&ll=26.351472,50.2109042&z=17"
+                      title="New location map preview"
+                      className="w-full h-full border-0"
+                      loading="lazy"
+                    />
+                  </div>
+                </button>
               </li>
 
             </ul>
@@ -1436,7 +1451,6 @@ export default function Home() {
             <h3 className="text-xl font-bold text-[#EA7946] mb-5">Our Clients</h3>
 
             <ul className="space-y-2 text-[#0B0844]/70 text-sm leading-relaxed">
-              <li>• Abdullah Khodair Alharbi</li>
               <li>• High Performance Industry</li>
               <li>• Industrial Dimensions Contracting</li>
               <li>• AMG Events</li>
@@ -1500,6 +1514,34 @@ export default function Home() {
         ></script>
 
       </footer>
+
+      {isFooterMapOpen && (
+        <div
+          className="fixed inset-0 z-[10050] bg-[#0B0844]/70 backdrop-blur-sm flex items-center justify-center p-4"
+          onClick={() => setIsFooterMapOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-4xl rounded-2xl overflow-hidden bg-white shadow-2xl border border-white/30"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setIsFooterMapOpen(false)}
+              className="absolute top-3 right-3 z-10 bg-white/90 text-[#0B0844] rounded-full w-9 h-9 flex items-center justify-center shadow hover:bg-white transition"
+              aria-label="Close map popup"
+            >
+              ×
+            </button>
+            <iframe
+              src="https://www.google.com/maps?output=embed&q=%D8%B4%D8%B1%D9%83%D8%A9%20%D8%A7%D9%84%D8%B5%D9%81%D9%82%D8%A9%20%D8%A7%D9%84%D9%85%D8%B6%D9%85%D9%88%D9%86%D8%A9%20zuccess&ll=26.351472,50.2109042&z=17"
+              title="New location map expanded view"
+              className="w-full h-[70vh] min-h-[360px] border-0"
+              loading="lazy"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      )}
 
 
     </>

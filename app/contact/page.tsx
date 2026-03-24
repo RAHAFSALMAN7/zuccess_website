@@ -80,8 +80,8 @@ export default function ContactPage() {
           <Mail className="w-12 h-12 text-[#EA7946]" />
           <h3 className="text-2xl font-bold mt-4">Email Us</h3>
           <p className="text-white/70 mt-3 text-center">We respond within a few hours.</p>
-          <a href="mailto:zuccessai@gmail.com" className="mt-4 text-[#EA7946] font-semibold">
-            zuccessai@gmail.com
+          <a href="mailto:info@zuccess.ai" className="mt-4 text-[#EA7946] font-semibold">
+            info@zuccess.ai
           </a>
         </div>
 
@@ -99,7 +99,7 @@ export default function ContactPage() {
         <div className="bg-white/10 backdrop-blur-xl p-10 rounded-3xl shadow-xl border border-white/20 flex flex-col items-center">
           <MapPin className="w-12 h-12 text-[#EA7946]" />
           <h3 className="text-2xl font-bold mt-4">Our Offices</h3>
-          <p className="text-white/70 mt-3 text-center">UAE • Palestine • Saudi Arabia</p>
+          <p className="text-white/70 mt-3 text-center">UAE • Jordan • Saudi Arabia</p>
         </div>
       </section>
 
@@ -134,7 +134,7 @@ export default function ContactPage() {
       </section>
 
       {/* MAPS SECTION */}
-      <section className="mt-32 px-8 md:px-24 grid grid-cols-1 md:grid-cols-3 gap-10 relative z-10">
+      <section className="mt-32 px-8 md:px-24 grid grid-cols-1 md:grid-cols-4 gap-10 relative z-10">
         {/* Saudi Arabia */}
         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d458229.94321264885!2d50.165055!3d26.199234!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49e839e8ef58d9%3A0xef778812d8b6aad1!2z2KfZhNiu2KjYsSDYp9mE2LPYudmI2K_Zitip!5e0!3m2!1sar!2sus!4v1765189483212!5m2!1sar!2sus"
           className="w-full h-[350px] rounded-3xl border-none" loading="lazy" />
@@ -145,6 +145,10 @@ export default function ContactPage() {
 
         {/* UAE */}
         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d230658.77149690734!2d55.525949!3d25.403361!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5764dd8fbe79%3A0xcda090de6445a819!2z2LnYrNmF2KfZhiAtINin2YTYpdmF2KfYsdin2Kog2KfZhNi52LHYqNmK2Kkg2KfZhNmF2KrYrdiv2Kk!5e0!3m2!1sar!2sus!4v1765189562332!5m2!1sar!2sus"
+          className="w-full h-[350px] rounded-3xl border-none" loading="lazy" />
+
+        {/* New Location */}
+        <iframe src="https://www.google.com/maps?output=embed&q=%D8%B4%D8%B1%D9%83%D8%A9%20%D8%A7%D9%84%D8%B5%D9%81%D9%82%D8%A9%20%D8%A7%D9%84%D9%85%D8%B6%D9%85%D9%88%D9%86%D8%A9%20zuccess&ll=26.351472,50.2109042&z=17"
           className="w-full h-[350px] rounded-3xl border-none" loading="lazy" />
       </section>
 
