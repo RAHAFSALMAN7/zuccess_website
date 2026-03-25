@@ -312,7 +312,12 @@ export default function Home() {
                 title: "Intelligent Home Solutions",
                 desc: "AI-powered smart homes, automation, security & intelligent living.",
                 id: "intelligent-home",
-              }
+              },
+              {
+                title: "Powered by NFC + AI Automation",
+                desc: "Smart digital business cards with instant sharing, QR setup, and AI actions.",
+                id: "nfc-ai-cards",
+              },
 
             ].map((item, index) => (
               <motion.div
@@ -353,6 +358,208 @@ export default function Home() {
                 >
                   ➜
                 </motion.div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+  ⭐ POWERED BY NFC + AI AUTOMATION — SMART DIGITAL BUSINESS CARDS
+============================================================================ */}
+      <section
+        id="nfc-ai-cards"
+        className="w-full py-32 px-8 md:px-24 bg-[#FFF8E8] text-[#0B0844] relative overflow-hidden"
+      >
+        <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(circle,#0B0844_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+        <div className="absolute -top-24 -left-24 w-[280px] h-[280px] rounded-full bg-[#EA7946]/20 blur-[120px]" />
+        <div className="absolute -bottom-24 -right-24 w-[260px] h-[260px] rounded-full bg-[#0B0844]/10 blur-[110px]" />
+
+        <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+          {/* LEFT — CONTENT */}
+          <motion.div
+            initial={{ opacity: 0, y: 35 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="space-y-7"
+          >
+            <p className="inline-flex items-center rounded-full border border-[#EA7946]/30 bg-white/70 px-4 py-2 text-xs md:text-sm font-semibold tracking-wide text-[#EA7946]">
+              Powered by NFC + AI Automation
+            </p>
+
+            <h2 className="text-4xl md:text-6xl font-extrabold leading-tight">
+              Smart Digital
+              <span className="block text-[#EA7946] mt-2">Business Cards</span>
+            </h2>
+
+            <p className="text-base md:text-lg text-[#0B0844]/80 leading-relaxed max-w-xl">
+              NFC + AI-powered digital cards that instantly share contact details, social links,
+              portfolio, and booking/contact actions in one tap or scan. Create your QR digital
+              card directly through WhatsApp in just a few simple steps.
+            </p>
+
+            <motion.div
+              initial={{ opacity: 0, x: -16 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2 rounded-full bg-[#0B0844] text-white px-5 py-2.5 shadow-md"
+            >
+              <span className="w-2.5 h-2.5 rounded-full bg-[#EA7946]" />
+              Trusted by 500+ professionals across the GCC.
+            </motion.div>
+
+            <div className="flex flex-wrap gap-4 pt-2">
+              <motion.a
+                href="https://wa.me/966561191797"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-[#EA7946] text-white font-semibold shadow-lg hover:shadow-[0_18px_40px_rgba(234,121,70,0.35)] transition-all"
+              >
+                Start on WhatsApp
+              </motion.a>
+
+              <motion.a
+                href="#"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-white text-[#0B0844] font-semibold border border-[#0B0844]/20 hover:bg-[#0B0844] hover:text-white transition-all"
+              >
+                Shop NFC Products
+              </motion.a>
+            </div>
+          </motion.div>
+
+          {/* RIGHT — MODERN MOCKUP */}
+          <motion.div
+            initial={{ opacity: 0, y: 25, scale: 0.96 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="relative flex justify-center"
+          >
+            <div className="absolute w-[320px] h-[320px] rounded-full bg-[#EA7946]/25 blur-[120px] -z-10" />
+
+            <div className="w-full max-w-[520px] rounded-[28px] border border-[#0B0844]/10 bg-white/80 backdrop-blur-xl p-6 md:p-7 shadow-[0_24px_70px_rgba(11,8,68,0.14)]">
+              <div className="rounded-2xl bg-gradient-to-br from-[#0B0844] to-[#1b1568] p-5 text-white">
+                <p className="text-xs uppercase tracking-[0.18em] text-white/70">NFC Smart Card</p>
+                <h3 className="text-2xl font-bold mt-2">Your Name / Brand</h3>
+                <p className="text-sm text-white/80 mt-2">One tap to share everything.</p>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3 mt-4">
+                {["Contact", "Portfolio", "Book Now", "Social Links"].map((item, idx) => (
+                  <motion.div
+                    key={item}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.08 * idx }}
+                    viewport={{ once: true }}
+                    className="rounded-xl border border-[#0B0844]/10 bg-white px-3 py-3 text-sm font-medium text-[#0B0844] shadow-sm"
+                  >
+                    {item}
+                  </motion.div>
+                ))}
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="mt-5 rounded-xl border border-dashed border-[#EA7946]/40 bg-[#EA7946]/10 px-4 py-3 text-sm text-[#0B0844]/80"
+              >
+                Create your QR card on WhatsApp and start sharing instantly.
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+      {/* =========================================================================
+  ⭐ CREATE YOUR CARD IN 4 SIMPLE STEPS
+============================================================================ */}
+      <section
+        id="nfc-steps"
+        className="w-full py-28 px-8 md:px-24 bg-[#FFF8E8] text-[#0B0844] relative overflow-hidden"
+      >
+        <div className="absolute inset-0 opacity-[0.04] bg-[radial-gradient(circle,#0B0844_1px,transparent_1px)] bg-[size:36px_36px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center max-w-3xl mx-auto"
+          >
+            <h2 className="text-4xl md:text-6xl font-extrabold leading-tight">
+              Create Your Card in
+              <span className="block text-[#EA7946] mt-2">4 Simple Steps</span>
+            </h2>
+            <p className="mt-5 text-[#0B0844]/70 text-base md:text-lg">
+              Zero signup. Zero complexity. Just WhatsApp.
+            </p>
+          </motion.div>
+
+          <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-7">
+            {[
+              {
+                no: "01",
+                title: "Send Your Business Card Photo",
+                desc: "Take a photo of your existing card or share your details via WhatsApp.",
+                image: "/step1.jpeg",
+              },
+              {
+                no: "02",
+                title: "Share Your Logo & Social Links",
+                desc: "Send your logo, profile photo, and all social media handles.",
+                image: "/step2.jpeg",
+              },
+              {
+                no: "03",
+                title: "Receive Your Digital Profile + QR",
+                desc: "Our automation generates your premium digital profile and unique QR code instantly.",
+                image: "/step3.jpeg",
+              },
+              {
+                no: "04",
+                title: "Order Your NFC Product",
+                desc: "Choose an NFC card, keychain, or board linked to your live profile.",
+                image: "/step4.jpeg",
+              },
+            ].map((step, index) => (
+              <motion.div
+                key={step.no}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: index * 0.12 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -6 }}
+                className="group bg-white/85 backdrop-blur-xl rounded-2xl border border-[#0B0844]/10 shadow-[0_10px_35px_rgba(11,8,68,0.10)] overflow-hidden"
+              >
+                <div className="relative w-full aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={step.image}
+                    alt={`Step ${step.no}: ${step.title}`}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-3 left-3 rounded-full bg-[#0B0844] text-white text-xs font-bold px-3 py-1">
+                    {step.no}
+                  </div>
+                </div>
+
+                <div className="p-5">
+                  <h3 className="text-lg font-bold text-[#0B0844] leading-snug">
+                    {step.title}
+                  </h3>
+                  <p className="mt-3 text-sm text-[#0B0844]/70 leading-relaxed">
+                    {step.desc}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
